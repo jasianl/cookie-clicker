@@ -1,0 +1,481 @@
+html {
+    height: 100%;
+}
+body {
+    background-image: url("img src/cookiebackground.jpg");
+    background-repeat: repeat;
+    background-size: 300px;
+    background-position: center;
+    overflow-x: hidden;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    height: 100%;
+}
+/*Screen sections left, center, right*/
+#left-section {
+    background-color: white;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    overflow-x: hidden; /*hides extra elements that show up on x that doesn't fit the screen*/
+    overflow-y: hidden; /*allows scroll for elements that show up on y that doesn't fit the screen*/
+}
+#right-section {
+    height: 100%;
+    width: 450px; /*ADDED*/
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    overflow-x: hidden; /*hides extra elements that show up on x that doesn't fit the screen*/
+    overflow-y: scroll; /*allows scroll for elements that show up on y that doesn't fit the screen*/
+}
+#center-section {
+    background-image: url("img src/background2.jpg");
+    background-repeat: no-repeat;
+    
+    position: absolute;
+    top: 0px;
+    right: 25%;
+    bottom: 0px;
+    left: 25%;
+    width: 50%;
+    min-width: 100px;
+    margin-right: 0px;    
+    overflow: hidden;
+}
+#left-split {
+    position: absolute;
+    left: 450px;
+    width: 30px;
+    height: 100%;
+    background-image: url("img src/background3.jpg");
+    background-size: 300px;
+    z-index: 99;
+}
+#right-split {
+    position: absolute;
+    right: 450px;
+    width: 30px;
+    height: 100%;
+    background-image: url("img src/background3.jpg");
+    background-size: 300px;
+    z-index: 99;
+}
+#bottom-split {
+    position: absolute;
+    bottom: 0px;
+    left: 450px;
+    width: 1000px;
+    height: 300px;
+    background-image: url("img src/background4.png");
+    background-size: 300px;
+    z-index: 97;
+}
+#top-split {
+    position: absolute;
+    bottom: 300px;
+    left: 450px;
+    width: 1000px;
+    height: 30px;
+    background-image: url("img src/background3.jpg");
+    background-size: 300px;
+    z-index: 98;
+}
+#top-top-split {
+    position: absolute;
+    top: 0px;
+    left: 450px;
+    width: 1000px;
+    height: 30px;
+    background-image: url("img src/background3.jpg");
+    background-size: 300px;
+    z-index: 98;
+}
+#bot-bot-split {
+    position: absolute;
+    bottom: 0px;
+    left: 450px;
+    width: 1000px;
+    height: 30px;
+    background-image: url("img src/background3.jpg");
+    background-size: 300px;
+    z-index: 98;
+}
+.title {
+    background-color: black;
+    color: white;
+    font-size: 32px;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    z-index: 20;
+    user-select: none;
+}
+.subtitle {
+    background-color: transparent;
+    color: black;
+    font-size: 32px;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    position: relative;
+    align-content: center;
+    justify-content: center;
+}
+#cpsid {
+    margin: auto; 
+    position: relative; 
+    top: 60px; 
+    border-radius: 20px;
+    background-color: transparent;
+    color: rgb(138, 109, 109);
+    font-size: 20px;
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 25px;
+}
+.right-store-section {
+    background-color: white;
+    width: 433px;
+    height: 100%;
+    top: -5px;
+    bottom: 0px;
+    margin-bottom: -5px;
+    padding-bottom: 150px;
+    position: relative;
+    background-image: url("img src/background2.jpg");
+    background-repeat: repeat;
+}
+.left-store-section {
+    background-color: white;
+    width: 450px;
+    height: 100%;
+    top: -5px;
+    bottom: 0px;
+    position: relative;
+    background-image: url("img src/background2.jpg");
+    background-repeat: repeat;
+}
+.upgrade-box {
+    background-color: rgb(255, 161, 73);
+    border-radius: 5px;
+    height: 120px;
+    cursor: pointer;
+    margin: 5px;
+    position: relative;
+    top: 5px;
+    user-select: none;
+    transition: background-color 0.5s ease;
+}
+.upgrade-box:hover {
+    background-color: rgb(255, 212, 173);
+}
+.upgrade-box:active {
+    background-color: rgb(255, 255, 255);
+    transform: scale(0.98);
+    transition: background-color 0.1s ease;
+}
+.upgrade-box .desc {
+    position: absolute;
+    font-size: 16px;
+    top: 10px;
+    left: 10px;
+}
+.upgrade-box img {
+    position: relative;
+    top: 45px;
+    left: 10px;
+    width: 64px;
+    height: 64px;
+}
+.upgrade-box .content{
+    height: 78px;
+    width: 300px;
+    position: absolute;
+    display: inline-block;
+    top: 40px;
+    left: 85px;
+    font-size: 16px;
+}
+.upgrade-box .content .price {
+    position: relative;
+    top: 46px;
+    left: 40px;
+    
+}
+.upgrade-box .content .multiplier {
+    position: relative;
+    left: 200px;
+    bottom: 20px;
+    white-space: normal;
+    text-align: left;
+    font-size: 30px;
+}
+.upgrade-box .content img  {
+    position: relative;
+    top: 50px;
+    left: 40px;
+}
+.equipment-box {
+    background-color: rgb(255, 161, 73);
+    border-radius: 5px;
+    height: 84px;
+    cursor: pointer;
+    margin: 5px;
+    position: relative;
+    top: 5px;
+    user-select: none;
+    transition: background-color 0.5s ease, padding 0.5s ease;
+}
+.equipment-box:hover {
+    background-color: rgb(255, 212, 173);
+    padding-bottom: 20px;
+}
+.equipment-box:active {
+    background-color: rgb(255, 255, 255);
+    transform: scale(0.98);
+    transition: background-color 0.1s ease;
+}
+.equipment-icon img {
+    background-color: black;
+    width: 64px;
+    height: 64px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+.equipment-content {  
+    position: relative;
+    display: inline-block;
+    top: -58px;
+    left: 84px;
+    width: 216px;
+}
+.cookieicon img {
+    position: relative;
+    top: 46px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    background-image: url("img src/cookieicon.png");
+}
+.price {
+    position: relative;
+    top: 42px;
+    left: 8px;
+}
+.owned {
+    width: 110px;
+    position: relative;
+    left: 220px;
+    bottom: 10px;
+    font-size: 32px;
+    text-align: right;
+}
+.buymax {
+    display: inline-block;
+    padding: 5px;
+    position: relative;
+    left: 140px;
+    bottom: 25px;
+    user-select: none;
+    z-index: 3;
+}
+#cookieclick {  
+    cursor: pointer;
+    width: 300px;
+    user-select: none;
+}
+#cookieclick:hover {
+    transform: scale(1.03);
+}
+#cookieclick:active {
+    transform: scale(0.98);
+}
+.tooltip-text {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0px;
+    top: 85px;
+    visibility: hidden;
+    text-align: center;
+    border-radius: 6px;
+    padding: 3px;
+    background-color: rgb(130, 184, 255);
+}
+.equipment-box:hover .tooltip-text {
+    visibility: visible;   
+}
+#coming-soon-box {
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    height: 84px;
+    cursor: pointer;
+    margin: 5px;
+    position: relative;
+    top: 5px;
+    user-select: none;
+    text-align: center;
+}
+#coming-soon {
+    position: absolute;
+    top: 75px;
+}
+.sound-div {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+#mutetoggle {
+    background-color: white;
+    background-image: url("img src/muteicon.png");
+    background-size: 45px;
+    background-repeat: no-repeat;
+    border-radius: 3px;
+    position: absolute;
+    right: 9px;
+    bottom: 340px;
+    width: 45px;
+    height: 45px;
+    z-index: 100;
+}
+#mutetoggle:hover {
+    transform: scale(1.05);
+}
+#mutetoggle:active {
+    transform: scale(0.95);
+}
+.name {
+    position: absolute;
+    left: 12px;
+    top: 2px;
+    font-size: 18px;
+    font-family: monospace;
+    text-align: left;
+    text-decoration: underline;
+}
+.booster {
+    background-image: url('img src/lightningboost.png');
+    background-size: 100px;
+    color: white;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 750px;
+    left: -200px;
+    z-index: 101;
+    display: none;
+    text-align: center;
+}
+#bigboost {
+    background-image: url('img src/lightningboost.png');
+}
+#smallreward {
+    background-image: url('img src/lightningboost.png');
+}
+#bigreward {
+    background-image: url('img src/lightningboost.png');
+}
+#testbutton {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 200px;
+    left: 500px;
+    z-index: 101;
+    display: none;
+}
+.menu-box {
+    position: absolute;
+    top: 40px;
+    left: 10px; 
+    width: 150px;
+    height: 300px;
+}
+.menu-btn-box {
+    position: relative;
+    top: -60px;
+    left: -5px;
+    background-color: white;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    border-radius: 10px;
+    width: 100px;
+    opacity: 0%;
+    transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    visibility: hidden;
+    cursor: pointer;
+    user-select: none;
+}
+.menu-btn-box:hover {
+    background-color: rgb(214, 214, 214);
+}
+.menu-btn-box:active {
+    transition: 0.1s ease;
+    background-color: rgb(146, 146, 146);
+    transform: scale(0.97);
+}
+.menu-btn {
+    position: relative;
+    top: -15px;
+    left: -15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+.menu-btn_burger {
+    width: 50px;
+    height: 6px;
+    background: white;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+}
+.menu-btn_burger::before,
+.menu-btn_burger::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 6px;
+    background: white;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+}
+.menu-btn_burger::before {
+    transform: translateY(-16px);
+}
+.menu-btn_burger::after {
+    transform: translateY(16px);
+}
+.menu-btn.open .menu-btn_burger {
+    transform: translateX(-50px);
+    background: transparent;
+}
+.menu-btn.open .menu-btn_burger::before {
+    transform: rotate(45deg) translate(35px, -35px);
+}
+.menu-btn.open .menu-btn_burger::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+.menu-box.open-box .menu-btn-box{
+    transform: translatey(40px);
+    opacity: 100%;
+    visibility: visible;
+}

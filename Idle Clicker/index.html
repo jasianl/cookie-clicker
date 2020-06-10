@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<audio id="mysound" src="sounds/tick.mp3"></audio> <!--audio sound-->
+		<audio id="mysound2" src="sounds/tick2.mp3"></audio> <!--audio sound-->
+		<script>
+			function setvolume() {
+				document.getElementById('mysound').volume = 0.25;
+				document.getElementById('mysound2').volume = 0.5;
+			}
+		</script>
+		<title>Idle Clicker</title>
+		<link rel="icon" type="image/png" href="img src/favicon.png">
+		<link rel="stylesheet" href="stylesheet.css">
+	</head>
+	<script src="idleEquipment.js"></script>
+	<script src="upgrades.js"></script>
+	<script src="functions.js"></script>
+	<body onload="tooltipmanager(); initializeCosts(); initializeUpgrades(); setvolume()">
+		<section id="left-split"></section>
+		<section id="right-split"></section>
+		<section id="bottom-split"></section>
+		<section id="top-split"></section>
+		<section id="top-top-split"></section>
+		<section id="bot-bot-split"></section>
+		<div class="booster" id="bigboost" onclick="bigbooster(); isClicked('bigboost')">100x more clicks for 30 seconds</div>
+		<div class="booster" id="smallreward" onclick="instantCookies2(); isClicked('smallreward')">Instantly gain cookies</div>
+		<div class="booster" id="bigreward" onclick="instantCookies(); isClicked('bigreward')">Instantly gain MORE cookies</div>
+		<div id="testbutton" onclick="sendBooster('bigboost')"></div>
+		<section id="center-section">
+			<div class="subtitle">
+				<p class="title" id='man' style="background-color: rgb(138, 109, 109); width: 300px; margin: auto; position: relative; top: 60px; border-radius: 20px;">0</p>
+				<p id="cpsid">You are earning 0.00 cookies per second.</p>
+				<p id="cpcid" style="position: absolute; left: 999999999px;">You earn 1 cookies per click.</p>
+			</div>
+			<div class="subtitle">
+				<div id="cookiehome"><img src="img src/cookie.png" id="cookieclick" onclick="clicked(); playsound2('mysound2')"></div>
+			</div>
+			<div class="menu-box">
+				<div class="menu-btn">
+					<div class="menu-btn_burger"></div>
+				</div>
+				<div class="menu-btn-box" id="save" onclick="save()">SAVE</div>
+				<div class="menu-btn-box" id="load" onclick="load()">LOAD</div>
+				<div class="menu-btn-box" id="reset" onclick="reset()">RESET</div>
+			</div>
+			
+			<script src="menu.js"></script>
+			<div id="mutetoggle" onclick="mutetoggle()"></div>
+		</section>
+		<br><br>
+		<section id="left-section">
+			<div class="title">Upgrade Store</div>
+			<div class="left-store-section">
+				<div class="upgrade-box" onclick="buyMultiplier('baseMultiplier')">
+					<div class="sound-div"  onmouseover="playsound('mysound')" onmouseout="stopsound('mysound')"></div>
+					<div class="desc">Double your current mouse and cps</div>
+					<div><img src="img src/x2boost.png"></div>
+					<div class="content">
+						<span class="cookieicon"><img src="img src/cookieicon.png"></span>
+						<span class="price" id="multipliercost">100</span>
+						<div class="multiplier" id="c_multiplier">x0</div>
+					</div>
+				</div>
+				<div class="upgrade-box" onclick="buyMultiplier('boostFrequency')" style="display: none;">
+					<div class="sound-div"  onmouseover="playsound('mysound')" onmouseout="stopsound('mysound')"></div>
+					<div class="desc">Increase rate of boost spawns</div>
+					<div><img src="img src/lightningboost.png"></div>
+					<div class="content">
+						<span class="cookieicon"><img src="img src/cookieicon.png"></span>
+						<span class="price" id="boostcost">100</span>
+						<div class="multiplier" id="c_boost">x0</div>
+					</div>
+				</div>
+				<div class="upgrade-box" onclick="buyMultiplier('costOfEquipment')">
+					<div class="desc">Better discounts when buying from Idle Store</div>
+					<div class="sound-div"  onmouseover="playsound('mysound')" onmouseout="stopsound('mysound')"></div>
+					<div><img src="img src/savemoney.png"></div>
+					<div class="content">
+						<span class="cookieicon"><img src="img src/cookieicon.png"></span>
+						<span class="price" id="equipmentcost">100</span>
+						<div class="multiplier" id="c_equipment">x0</div>
+					</div>
+				</div>
+				<div class="upgrade-box" onclick="buyMultiplier('costOfUpgrade')">
+					<div class="desc">Better discounts when buying from Upgrade Store</div>
+					<div class="sound-div"  onmouseover="playsound('mysound')" onmouseout="stopsound('mysound')"></div>
+					<div><img src="img src/savemoney.png"></div>
+					<div class="content">
+						<span class="cookieicon"><img src="img src/cookieicon.png"></span>
+						<span class="price" id="upgradecost">100</span>
+						<div class="multiplier" id="c_upgrade">x0</div>
+					</div>
+				</div>				
+			</div>
+		</section>
+		
+		<section id="right-section">
+			<div class="title">Idle Store</div>
+			<div id="storesection" class="right-store-section">
+				<div class="equipment-box" onclick="buyEquipment('autoclicker')">
+					<div class="sound-div"  onmouseover="playsound('mysound')" onmouseout="stopsound('mysound')"></div>	<!--This was added for sounds, 404 error favicon-->
+					<span id="autoclickertooltip" class="tooltip-text"></span>
+					<div class="equipment-icon"><img src="img src/handcursor.png"></div>
+					<div class="equipment-content">
+						<span class="name">Auto Clicker</span>
+						<span class="cookieicon"><img src="img src/cookieicon.png"></span>
+						<span class="price" id="clickercost"></span>
+						<div class="owned" id="ownedclickers"></div>
+						<button class="buymax" onclick="buymax('autoclicker')" onmouseover="resetsound('mysound')">Buy max</button>	<!--This was added for sounds, 404 error favicon-->
+					</div>	
+				</div>
+				<div class="equipment-box" onclick="buyEquipment('farm')">
+					<div class="sound-div"  onmouseover="playsound('mysound')" onmouseout="stopsound('mysound')"></div>
+					<span id="farmtooltip" class="tooltip-text"></span>
+					<div class="equipment-icon"><img src="img src/farm.png"></div>
+					<div class="equipment-content">
+						<span class="name">Farm</span>
+						<span class="cookieicon"><img src="img src/cookieicon.png"></span>
+						<span class="price" id="farmcost"></span>
+						<div class="owned" id="ownedfarms"></div>
+						<button class="buymax" onclick="buymax('farm')" onmouseover="resetsound('mysound')">Buy max</button>
+					</div>	
+				</div>
+				<div class="equipment-box" onclick="buyEquipment('field')">
+					<div class="sound-div"  onmouseover="playsound('mysound')" onmouseout="stopsound('mysound')"></div>	
+					<span id="fieldtooltip" class="tooltip-text"></span>
+					<div class="equipment-icon"><img src="img src/field.png"></div>
+					<div class="equipment-content">
+						<span class="name">Field</span>
+						<span class="cookieicon"><img src="img src/cookieicon.png"></span>
+						<span class="price" id="fieldcost"></span>
+						<div class="owned" id="ownedfields"></div>
+						<button class="buymax" onclick="buymax('field')" onmouseover="resetsound('mysound')">Buy max</button>	
+					</div>	
+				</div>
+				<div class="equipment-box" onclick="buyEquipment('industry')">
+					<div class="sound-div"  onmouseover="playsound('mysound')" onmouseout="stopsound('mysound')"></div>
+					<span id="industrytooltip" class="tooltip-text"></span>
+					<div class="equipment-icon"><img src="img src/industry.png"></div>
+					<div class="equipment-content">
+						<span class="name">Industry</span>
+						<span class="cookieicon"><img src="img src/cookieicon.png"></span>
+						<span class="price" id="industrycost"></span>
+						<div class="owned" id="ownedindustries"></div>
+						<button class="buymax" onclick="buymax('industry')" onmouseover="resetsound('mysound')">Buy max</button>
+					</div>	
+				</div>
+				<div class="equipment-box" onclick="buyEquipment('corp')">
+					<div class="sound-div"  onmouseover="playsound('mysound')" onmouseout="stopsound('mysound')"></div>
+					<span id="corptooltip" class="tooltip-text"></span>
+					<div class="equipment-icon"><img src="img src/corp.png"></div>
+					<div class="equipment-content">
+						<span class="name">Corp</span>
+						<span class="cookieicon"><img src="img src/cookieicon.png"></span>
+						<span class="price" id="corpcost"></span>
+						<div class="owned" id="ownedcorps"></div>
+						<button class="buymax" onclick="buymax('corp')" onmouseover="resetsound('mysound')">Buy max</button>
+					</div>	
+				</div>
+				<div class="equipment-box" onclick="buyEquipment('bank')">
+					<div class="sound-div"  onmouseover="playsound('mysound')" onmouseout="stopsound('mysound')"></div>
+					<span id="banktooltip" class="tooltip-text"></span>
+					<div class="equipment-icon"><img src="img src/bank.png"></div>
+					<div class="equipment-content">
+						<span class="name">Bank</span>
+						<span class="cookieicon"><img src="img src/cookieicon.png"></span>
+						<span class="price" id="bankcost"></span>
+						<div class="owned" id="ownedbanks"></div>
+						<button class="buymax" onclick="buymax('bank')" onmouseover="resetsound('mysound')">Buy max</button>
+					</div>	
+				</div>
+				<div class="equipment-box" onclick="buyEquipment('military')">
+					<div class="sound-div"  onmouseover="playsound('mysound')" onmouseout="stopsound('mysound')"></div>
+					<span id="militarytooltip" class="tooltip-text"></span>
+					<div class="equipment-icon"><img src="img src/military.png"></div>
+					<div class="equipment-content">
+						<span class="name">Military</span>
+						<span class="cookieicon"><img src="img src/cookieicon.png"></span>
+						<span class="price" id="militarycost"></span>
+						<div class="owned" id="ownedmilitaries"></div>
+						<button class="buymax" onclick="buymax('military')" onmouseover="resetsound('mysound')">Buy max</button>
+					</div>	
+				</div>
+				<div class="equipment-box" onclick="buyEquipment('island')">
+					<div class="sound-div"  onmouseover="playsound('mysound')" onmouseout="stopsound('mysound')"></div>
+					<span id="islandtooltip" class="tooltip-text"></span>
+					<div class="equipment-icon"><img src="img src/island.png"></div>
+					<div class="equipment-content">
+						<span class="name">Island</span>
+						<span class="cookieicon"><img src="img src/cookieicon.png"></span>
+						<span class="price" id="islandcost"></span>
+						<div class="owned" id="ownedislands"></div>
+						<button class="buymax" onclick="buymax('island')" onmouseover="resetsound('mysound')">Buy max</button>
+					</div>	
+				</div>
+				<div class="equipment-box" onclick="buyEquipment('planet')">
+					<div class="sound-div"  onmouseover="playsound('mysound')" onmouseout="stopsound('mysound')"></div>
+					<span id="planettooltip" class="tooltip-text"></span>
+					<div class="equipment-icon"><img src="img src/planet.png"></div>
+					<div class="equipment-content">
+						<span class="name">Planet</span>
+						<span class="cookieicon"><img src="img src/cookieicon.png"></span>
+						<span class="price" id="planetcost"></span>
+						<div class="owned" id="ownedplanets"></div>
+						<button class="buymax" onclick="buymax('planet')" onmouseover="resetsound('mysound')">Buy max</button>
+					</div>	
+				</div>
+				<div class="equipment-box" onclick="buyEquipment('laser')">
+					<div class="sound-div"  onmouseover="playsound('mysound')" onmouseout="stopsound('mysound')"></div>
+					<span id="lasertooltip" class="tooltip-text"></span>
+					<div class="equipment-icon"><img src="img src/laser.png"></div>
+					<div class="equipment-content">
+						<span class="name">Laser</span>
+						<span class="cookieicon"><img src="img src/cookieicon.png"></span>
+						<span class="price" id="lasercost"></span>
+						<div class="owned" id="ownedlasers"></div>
+						<button class="buymax" onclick="buymax('laser')" onmouseover="resetsound('mysound')">Buy max</button>
+					</div>	
+				</div>
+				<div id="coming-soon-box">
+					<div class="equipment-content">
+						<div id="coming-soon">TBA</div>
+					</div>	
+				</div>
+			</div>
+		</section>	
+		<script src="dataManipulation.js"></script>
+		<script src="functions.js"></script>
+	</body>
+</html>
